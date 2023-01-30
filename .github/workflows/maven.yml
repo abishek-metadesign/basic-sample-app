@@ -30,12 +30,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Set variable for Submodule
-      run:  sudo apt-get install -y jq ;TEST_PATH=$(cat info.json | jq -r '.testPath');TEST_PROJECT=$(cat info.json | jq -r  '.testProject' ); echo $TEST_PROJECT ; echo $TEST_PATH
-    - name: Add Submodule
-      run: git submodule add -f $TEST_PROJECT ${TEST_PATH}/external
+      run:  sudo apt-get install -y jq ;TEST_PATH=$(cat info.json | jq -r '.testPath');TEST_PROJECT=$(cat info.json | jq -r  '.testProject' ); echo $TEST_PROJECT ; echo $TEST_PATH ; git submodule add -f $TEST_PROJECT ${TEST_PATH}/external
     - name: run test
       run: mvn test
-
-
-
-
