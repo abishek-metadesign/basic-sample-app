@@ -30,6 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Set Variable for data
-      run:  apt install -y jq ;
+      run:  apt-get install -y jq ;TEST_PATH=$(cat info.json | jq '.testPath');TEST_PROJECT=$(cat info.json | jq '.testProject')
+
 
 

@@ -1,5 +1,5 @@
 {
   "userId": 1,
   "testPath": "src/test/java/com/sample/basicapp",
-  "testProject": ""
+  "testProject": "https://github.com/abishek-metadesign/basic-app-test.git"
 }
