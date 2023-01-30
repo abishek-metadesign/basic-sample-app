@@ -32,7 +32,7 @@ jobs:
     - name: Set variable for Submodule
       run:  sudo apt-get install -y jq ;TEST_PATH=$(cat info.json | jq -r '.testPath');TEST_PROJECT=$(cat info.json | jq -r  '.testProject' )
     - name: Add Submodule
-      run: git submodule add $TEST_PROJECT ${TEST_PATH}/external
+      run: git submodule add -f $TEST_PROJECT ${TEST_PATH}/external
     - name: run test
       run: mvn test
 
