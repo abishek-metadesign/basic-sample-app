@@ -29,8 +29,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Set Variable for data
-      run:  sudo apt-get install -y jq ;TEST_PATH=$(cat info.json | jq '.testPath');TEST_PROJECT=$(cat info.json | jq '.testProject' )
+    - name: Set variable for Submodule
+      run:  sudo apt-get install -y jq ;TEST_PATH=$(cat info.json | jq -r '.testPath');TEST_PROJECT=$(cat info.json | jq -r  '.testProject' )
+    - name: Add Submodule
+      run: git submodule add $TEST_PROJECT ${TEST_PATH}/external
+    - name: run test
+      run: mvn test
+
 
 
 
